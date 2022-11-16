@@ -1,10 +1,7 @@
-// // import './css/styles.css';
-// // import seachCountry from '../src/fetchCountries.js';
 import { fetchCountries } from './fetchCountries';
 import { refs } from './refs';
 import { renderCountryList, renderCountryInfo } from './markup';
 
-// console.log(fetchCountries);
 import debounce from 'lodash.debounce'; //
 console.log(debounce);
 import { Notify } from 'notiflix';
@@ -16,9 +13,8 @@ refs.input.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY));
 
 function onCountryInput(e) {
   const name = e.target.value.trim();
-  console.log(name);
   if (name === '') {
-    return (refs.ul.innerHTML = '') && (refs.div.innerHTML = '');
+    return (refs.ul.innerHTML = ''), (refs.div.innerHTML = '');
   }
 
   fetchCountries(name)
